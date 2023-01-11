@@ -50,7 +50,7 @@ in root of project.
 If not yet installed, install node + npm/yarn, e.g. for Mac OS run
 
 ```sh
-$ brew install yarn 
+$ brew install npm
 ```
 which will also install Node.js if it is not already installed.
 
@@ -58,7 +58,7 @@ To install the Angular dependencies, run
 
 ```sh
 $ cd ./frontend
-$ yarn install
+$ npm install
 ```
 
 in root of project.
@@ -81,7 +81,7 @@ $ go get -u github.com/favadi/protoc-go-inject-tag
 The compiler plugin `protoc-gen-go` will be installed in `$GOBIN`, defaulting to `$GOPATH/bin`. 
 It must be in your `$PATH` for the protocol compiler protoc to find it.
 
-Assuming you have run `yarn install` before (see above), which installs the `protobuf.js` dependency continue with the compilation as follows.
+Assuming you have run `npm install` before (see above), which installs the `protobuf.js` dependency continue with the compilation as follows.
 To compile the schema to Go and Typescript sources run
 
 ```sh
@@ -111,8 +111,7 @@ This will fire up a database listening on port `5432` of your `localhost`.
 To start the backend server on port `8080` run 
 
 ```sh
-$ cd ./backend
-$ go run main.go
+$ go run backend/main.go
 ```
 
 in root of project directory.
@@ -123,7 +122,7 @@ To start the frontend server on port `4200` run
 
 ```sh
 $ cd ./frontend
-$ yarn run dev
+$ npm run start
 ```
 
 in root of project directory.
