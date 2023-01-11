@@ -1,0 +1,23 @@
+syntax = "proto3";
+package models;
+
+option go_package = "./litclub";
+
+message User {
+    uint32 ID = 1;
+    uint32 created_at = 2;
+    uint32 updated_at = 3;
+    string first_name = 4;
+    string last_name = 5;
+    // @inject_tag: gorm:"unique;not null"
+    string username = 6;
+    // @inject_tag: json:"-"
+    string password = 7;
+    enum Role {
+        ROLE_USER = 0;
+        ROLE_CONTENT_ADMIN = 1;
+        ROLE_ADMIN = 2;
+    }
+    // @inject_tag: json:"role"
+    Role role = 8;
+}

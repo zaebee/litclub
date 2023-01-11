@@ -1,0 +1,43 @@
+language: go
+
+go:
+  - 1.10.3
+
+sudo: true
+
+env:
+  - NODE_VERSION="8.11.1"
+
+before_install:
+  - go get -u github.com/kardianos/govendor
+
+install:
+  - govendor sync
+
+services:
+  - docker
+
+notifications:
+  email: false
+
+script:
+  - docker-compose -f docker-compose.test.yml up -d
+  - go test -v ./...
+
+before_deploy:
+  - nvm install $NODE_VERSION
+  - npm install -g --silent @angular/cli@6.1.3
+  - npm install -g yarn
+  - cd $TRAVIS_BUILD_DIR/frontend
+  - yarn install --pure-lockfile
+  - yarn run build-prod
+  - cd $TRAVIS_BUILD_DIR
+
+deploy:
+  provider: heroku
+  app: go-rest-ng6-proto
+  api_key: $HEROKU_API_KEY
+  skip_cleanup: true
+  local_dir: frontend/dist
+  on:
+    branch: master
