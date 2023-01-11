@@ -20,13 +20,7 @@ Services for CI & CD:
 To get the project, you need to install Go and set your Go workspace (i.e. [`$GOPATH`](https://golang.org/doc/code.html)) first.
 
 ```sh
-$ go get github.com/app8izer/go-gin-ng6-starter
-```
-
-Alternatively, use git to clone the project: 
-
-```sh
-$ git clone https://github.com/app8izer/go-gin-ng6-starter.git
+$ git clone https://github.com/zaebee/litclub.git
 ```
 
 ## Install Golang Dependencies via govendor
@@ -40,7 +34,7 @@ $ go get -u github.com/kardianos/govendor
 To install the golang dependencies, run
 
 ```sh
-$ govendor sync
+$ go mod vendor
 ```
 
 in root of project.
