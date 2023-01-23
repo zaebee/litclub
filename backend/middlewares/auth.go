@@ -2,13 +2,14 @@ package middlewares
 
 import (
 	"errors"
-	"github.com/appleboy/gin-jwt"
+	"net/http"
+	"time"
+
+	jwt "github.com/appleboy/gin-jwt"
 	"github.com/gin-gonic/gin"
 	"github.com/zaebee/litclub/backend/config"
 	"github.com/zaebee/litclub/backend/models"
 	"github.com/zaebee/litclub/backend/services"
-	"net/http"
-	"time"
 )
 
 type JwtMiddleware struct {
