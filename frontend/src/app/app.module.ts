@@ -8,6 +8,7 @@ import { BookPageComponent } from './pages/book/book.page';
 import { DashboardPageComponent } from './pages/dashboard/dashboard.page';
 import { ErrorPageComponent } from './pages/error/error.page';
 import { ProfilePageComponent } from './pages/profile/profile.page';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProfilePageComponent } from './pages/profile/profile.page';
     DashboardPageComponent,
     ErrorPageComponent,
     ProfilePageComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,

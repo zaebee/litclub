@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.sass']
 })
-export class BookPageComponent {
+export class CommentComponent {
 
 }
