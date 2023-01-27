@@ -1,5 +1,92 @@
+basePath: /api
+definitions:
+  models.User:
+    properties:
+      ID:
+        type: integer
+      created_at:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      role:
+        allOf:
+        - $ref: '#/definitions/models.User_Role'
+        description: '@inject_tag: json:"role"'
+      updated_at:
+        type: integer
+      username:
+        description: '@inject_tag: gorm:"unique;not null"'
+        type: string
+    type: object
+  models.User_Role:
+    enum:
+    - 0
+    - 1
+    - 2
+    type: integer
+    x-enum-varnames:
+    - User_ROLE_USER
+    - User_ROLE_CONTENT_ADMIN
+    - User_ROLE_ADMIN
 info:
   contact: {}
   title: LitClub API
-paths: {}
+paths:
+  /admin/user/:
+    get:
+      description: Responds with the list of all users as JSON.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.User'
+            type: array
+      summary: Get users array.
+      tags:
+      - admin
+    post:
+      description: Takes a user JSON and stores in DB. Returns saved User.
+      parameters:
+      - description: User jSON
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+      summary: Get single user by ID
+      tags:
+      - admin
+  /users/{ID}:
+    get:
+      description: Returns the user whose matched by ID.
+      parameters:
+      - description: get user by ID
+        in: path
+        name: ID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.User'
+            type: array
+      summary: Get single user by ID
+      tags:
+      - users
 swagger: "2.0"

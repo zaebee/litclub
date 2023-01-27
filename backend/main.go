@@ -6,6 +6,7 @@ import (
 )
 
 // @title LitClub API
+// @BasePath  /api
 func main() {
 	server.StartServer()
 }

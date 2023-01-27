@@ -2,9 +2,10 @@ package controllers
 
 import (
 	"encoding/json"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/zaebee/litclub/backend/models"
-	"net/http"
 )
 
 func AdminController(r *gin.RouterGroup) {
@@ -16,6 +17,14 @@ func AdminController(r *gin.RouterGroup) {
 	}
 }
 
+// CreateUser    godoc
+// @Summary      Get single user by ID
+// @Description  Takes a user JSON and stores in DB. Returns saved User.
+// @Tags         admin
+// @Produce      json
+// @Param        user body models.User true "User jSON"
+// @Success      200  {object}  models.User
+// @Router       /admin/user/ [post]
 func CreateUser(c *gin.Context) {
 	user := models.User{}
 	if err := c.ShouldBind(&user); err == nil {
@@ -29,6 +38,13 @@ func CreateUser(c *gin.Context) {
 	}
 }
 
+// GetAllUsers   godoc
+// @Summary      Get users array.
+// @Description  Responds with the list of all users as JSON.
+// @Tags         admin
+// @Produce      json
+// @Success      200  {array}  models.User
+// @Router       /admin/user/ [get]
 func GetAllUsers(c *gin.Context) {
 	res, err := json.Marshal(userService.GetAll())
 	if err == nil {
