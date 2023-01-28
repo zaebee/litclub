@@ -3,6 +3,36 @@ package models;
 
 option go_package = "./litclub";
 
+message Author {
+    uint32 ID = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string bio = 4;
+}
+
+message CommentType {
+    uint32 ID = 1;
+    string type = 2;
+}
+
+message Comment {
+    uint32 ID = 1;
+    User user = 2;
+    CommentType type = 3;
+    string content = 4;
+    bool visible = 5;
+}
+
+message Book {
+    uint32 ID = 1;
+    string title = 2;
+    string cover = 3;
+    Author author = 4;
+    repeated Comment cites = 5;
+    repeated Comment takeovers = 6;
+    repeated Comment comments = 7;
+}
+
 message User {
     uint32 ID = 1;
     uint32 created_at = 2;
@@ -10,9 +40,7 @@ message User {
     string first_name = 4;
     string last_name = 5;
     // @inject_tag: gorm:"unique;not null"
-    string username = 6;
-    // @inject_tag: json:"-"
-    string password = 7;
+    string email = 6;
     enum Role {
         ROLE_USER = 0;
         ROLE_CONTENT_ADMIN = 1;
@@ -20,4 +48,13 @@ message User {
     }
     // @inject_tag: json:"role"
     Role role = 8;
+    repeated Book books = 9;
+}
+
+message Team {
+    uint32 ID = 1;
+    string name = 2;
+    repeated User admins = 3;
+    repeated User members = 4;
+    repeated User invites = 5;
 }
