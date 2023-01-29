@@ -17,7 +17,7 @@ func UserController(r *gin.RouterGroup) {
 	}
 }
 
-// GetUsers             godoc
+// GetUserById   godoc
 // @Summary      Get single user by ID
 // @Description  Returns the user whose matched by ID.
 // @Tags         users
@@ -28,7 +28,7 @@ func UserController(r *gin.RouterGroup) {
 func GetUserById(c *gin.Context) {
 	userId := c.Param("userId")
 	if userId != "" {
-		res, err := json.Marshal(userService.GetById(userId))
+		res, err := json.Marshal(userService.GetByID(userId))
 		if err == nil {
 			c.JSON(http.StatusOK, string(res))
 			return

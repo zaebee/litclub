@@ -1,3 +1,5 @@
+# github.com/Bowery/prompt v0.0.0-20190916142128-fa8279994f75
+## explicit
 # github.com/KyleBanks/depth v1.2.1
 ## explicit
 github.com/KyleBanks/depth
@@ -8,6 +10,8 @@ github.com/KyleBanks/depth
 # github.com/appleboy/gin-jwt v2.3.2-0.20180720003647-c21115ccebd4+incompatible
 ## explicit
 github.com/appleboy/gin-jwt
+# github.com/dchest/safefile v0.0.0-20151022103144-855e8d98f185
+## explicit
 # github.com/favadi/protoc-go-inject-tag v1.4.0
 ## explicit; go 1.18
 # github.com/fsnotify/fsnotify v1.4.7
@@ -70,6 +74,8 @@ github.com/golang-migrate/migrate/source/file
 # github.com/golang/protobuf v1.5.2
 ## explicit; go 1.9
 github.com/golang/protobuf/proto
+# github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
+## explicit; go 1.13
 # github.com/googollee/go-engine.io v0.0.0-20180611083002-3c3145340e67
 ## explicit
 github.com/googollee/go-engine.io
@@ -109,6 +115,8 @@ github.com/josharian/intern
 # github.com/json-iterator/go v1.1.12
 ## explicit; go 1.12
 github.com/json-iterator/go
+# github.com/kardianos/govendor v1.0.9
+## explicit
 # github.com/leodido/go-urn v1.2.1
 ## explicit; go 1.13
 github.com/leodido/go-urn
@@ -147,6 +155,8 @@ github.com/pelletier/go-toml/v2/internal/characters
 github.com/pelletier/go-toml/v2/internal/danger
 github.com/pelletier/go-toml/v2/internal/tracker
 github.com/pelletier/go-toml/v2/unstable
+# github.com/pkg/errors v0.9.1
+## explicit
 # github.com/spf13/afero v1.1.1
 ## explicit
 github.com/spf13/afero

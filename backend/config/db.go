@@ -60,7 +60,7 @@ func performMigrations(db *sql.DB, dbName string) {
 	}
 }
 
-// returns a handle to the DB object
+// GetDB returns a handle to the DB object
 func GetDB() *gorm.DB {
 	return db
 }

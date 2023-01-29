@@ -38,7 +38,7 @@ func (ur *UserRepository) GetByUsername(username string) *models.User {
 	return u
 }
 
-func (ur *UserRepository) GetById(id string) *models.User {
+func (ur *UserRepository) GetByID(id string) *models.User {
 	u := &models.User{}
 	err := ur.db.Table("users").Where("id = ?", id).First(&u).Error
 	if err == gorm.ErrRecordNotFound {

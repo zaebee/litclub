@@ -15,6 +15,7 @@ type UserService struct {
 	userRepository *repositories.UserRepository
 }
 
+// GetUserServiceInstance returns instance of User service.
 func GetUserServiceInstance() *UserService {
 	once.Do(func() {
 		singleton = &UserService{}
@@ -36,15 +37,17 @@ func GetUserServiceInstance() *UserService {
 	return singleton
 }
 
-// Service methods
+// GetByUsername returns User instance from given username.
 func (us *UserService) GetByUsername(username string) *models.User {
 	return us.userRepository.GetByUsername(username)
 }
 
-func (us *UserService) GetById(id string) *models.User {
-	return us.userRepository.GetById(id)
+// GetByID return User instance from given ID.
+func (us *UserService) GetByID(id string) *models.User {
+	return us.userRepository.GetByID(id)
 }
 
+// Create creates user instance.
 func (us *UserService) Create(user *models.User) *models.User {
 	hash, err := HashPassword(user.Password)
 	if err != nil {
@@ -57,6 +60,7 @@ func (us *UserService) Create(user *models.User) *models.User {
 	return us.userRepository.Create(user)
 }
 
+// GetAll returns all User instances from repository.
 func (us *UserService) GetAll() []*models.User {
 	return us.userRepository.GetAll()
 }
